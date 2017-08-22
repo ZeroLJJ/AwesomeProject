@@ -22,6 +22,8 @@ export default class EditView extends Component {
           placeholder={this.props.name}
           onChangeText={
             (text) => {
+              // this.setState({ text-键名: text-值（现为变量});等同与以下
+              // 键名与变量名相同时，只写键名
               this.setState({ text });
               this.props.onChangeText(text);
             }
