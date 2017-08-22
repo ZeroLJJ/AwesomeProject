@@ -14,12 +14,12 @@ import LoginButton from "../lib/LoginButton";
 import LoginSuccess from "../ui/LoginSuccess";
 import NetUitl from "../lib/NetUtil";
 export default class LoginActivity extends Component {
+  // 因constructor会覆盖父类的构造方法，导致父类未执行构造方法
+  // 如果你用到了constructor就必须写super(),是用来初始化this的，可以绑定事件到this上;
+  // 如果你在constructor中要使用this.props,就必须给super加参数：super(props)；
+  // （无论有没有constructor，在render中this.props都是可以使用的，这是React自动附带的；）
+  // 如果没用到constructor,是可以不写的
   constructor(props) {
-    // 因constructor会覆盖父类的构造方法，导致父类未执行构造方法
-    // 如果你用到了constructor就必须写super(),是用来初始化this的，可以绑定事件到this上;
-    // 如果你在constructor中要使用this.props,就必须给super加参数：super(props)；
-    // （无论有没有constructor，在render中this.props都是可以使用的，这是React自动附带的；）
-    // 如果没用到constructor,是可以不写的
     super(props);
     this.userName = "";
     this.password = "";
