@@ -51,3 +51,8 @@ buck-out/
 fastlane/report.xml
 fastlane/Preview.html
 fastlane/screenshots
+.vscode/.react/index.android.bundle
+.vscode/.react/index.android.map
+.gitignore
+.gitignore
+.vscode/.react/debuggerWorker.js

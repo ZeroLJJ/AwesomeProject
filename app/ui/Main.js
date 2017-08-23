@@ -13,7 +13,7 @@ import EditView from "../lib/EditView";
 import LoginButton from "../lib/LoginButton";
 import LoginSuccess from "../ui/LoginSuccess";
 import NetUitl from "../lib/NetUtil";
-export default class LoginActivity extends Component {
+export default class Main extends React.Component {
   // 因constructor会覆盖父类的构造方法，导致父类未执行构造方法
   // 如果你用到了constructor就必须写super(),是用来初始化this的，可以绑定事件到this上;
   // 如果你在constructor中要使用this.props,就必须给super加参数：super(props)；
@@ -23,7 +23,14 @@ export default class LoginActivity extends Component {
     super(props);
     this.userName = "";
     this.password = "";
+    // ES6 类中成员函数必须手动绑定this如下，否则无法使用this:
+    // this.onLoginSuccess = this.onLoginSuccess.bind(this);
+    // 或者如本例中成员函数用()=>箭头函数赋值，箭头函数因无this,会自动获取外层this。
   }
+
+  static navigationOptions = {
+    title: 'Welcome',
+  };
 
   render() {
     return (
@@ -86,21 +93,12 @@ export default class LoginActivity extends Component {
   };
 
   //跳转到第二个页面去
-  onLoginSuccess() {
-    const { navigator } = this.props;
-    if (navigator) {
-      navigator.push({
-        name: "LoginSuccess",
-        component: LoginSuccess
-      });
+  onLoginSuccess = () => {
+    const { navigate } = this.props.navigation;
+    if (navigate) {
+      navigate('LoginSuccess', { name: 'LoginSuccess' });
     }
-  }
-}
-
-class loginLineView extends Component {
-  render() {
-    return <Text>没有帐号</Text>;
-  }
+  };
 }
 
 const LoginStyles = StyleSheet.create({

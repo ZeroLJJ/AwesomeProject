@@ -10,13 +10,12 @@ export default class LoginSuccess extends React.Component {
   constructor(props) {
     super(props);
     this.state = {};
-
   }
   // 回到第一个页面去
-  onJump() {
-    const { navigator } = this.props;
-    if (navigator) {
-      navigator.pop();
+  onJump = () => {
+    const { navigate } = this.props.navigation;
+    if (navigate) {
+      navigate('Home', { name: 'Home' });
     }
   }
 

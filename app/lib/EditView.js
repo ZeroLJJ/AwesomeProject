@@ -9,7 +9,7 @@ import {
   TextInput,
   TouchableOpacity
 } from 'react-native';
-export default class EditView extends Component {
+export default class EditView extends React.Component {
   constructor(props) {
     super(props);
     this.state = { text: '' };

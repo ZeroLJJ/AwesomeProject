@@ -14,5 +14,5 @@ import {
   TextInput,
   TouchableOpacity
 } from 'react-native';
-import Navigator from './app/Navigator';
-AppRegistry.registerComponent('AwesomeProject', () => Navigator);
+import App from './app/Navigator';
+AppRegistry.registerComponent('AwesomeProject', () => App);
