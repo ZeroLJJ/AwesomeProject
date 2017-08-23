@@ -11,6 +11,12 @@ export default class LoginSuccess extends React.Component {
     super(props);
     this.state = {};
   }
+
+  static navigationOptions = {
+    headerTitle: 'success',
+    header: null
+  };
+
   // 回到第一个页面去
   onJump = () => {
     const { navigate } = this.props.navigation;
