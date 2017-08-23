@@ -22,8 +22,8 @@ export default class EditView extends React.Component {
           placeholder={this.props.name}
           onChangeText={
             (text) => {
-              // this.setState({ text-键名: text-值（现为变量});等同与以下
-              // 键名与变量名相同时，只写键名
+              // text外还有个{}是ES6的新特性，对数组或对象进行解构
+              // 对象则需名字对应上，或者{text:t}这样后面的t才是真正被赋值的变量
               this.setState({ text });
               this.props.onChangeText(text);
             }
